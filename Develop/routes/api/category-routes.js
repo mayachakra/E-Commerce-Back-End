@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
   // be sure to include its associated Products
   try{
     const categoryData = await Category.findAll({
-      include: [{model: Category}],
+      include: [{model: Product}],
     });
     res.status(200).json(categoryData);
   }catch(err){
@@ -21,7 +21,7 @@ router.get('/:id', (req, res) => {
   // be sure to include its associated Products
   try{
     const categoryData = await Category.findByPk(req.params.id,{
-      include: [{model: Category}],
+      include: [{model: Product}],
     });
     if(!categoryData){
       res.status(404).json({ message: 'Not a category in our system'});
@@ -56,11 +56,10 @@ router.put('/:id', (req, res) => {
       return;
     }
     //update category
-    //FIX THESE
-    //Category.category_name = category_name;
-    //await Category.afterSave();
+    if(req.body.category_name){
+      await categoryData.update({ category_name: req.body.category_name});
+    }
     res.status(200).json(categoryData);
-
   }catch(err){
     res.status(500).json(err);
   }
