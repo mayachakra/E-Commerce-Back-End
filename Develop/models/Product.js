@@ -40,7 +40,7 @@ Product.init(
         isNumeric: true,
       },
       references:{
-        model: 'Category',
+        model: 'category',
         key:'id',
       },
     },
