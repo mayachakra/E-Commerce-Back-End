@@ -59,16 +59,15 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
   // update a tag's name by its `id` value
   try{
-    const tagData = await Tag.findByPk(req.params.id,{
-      include: [{model: Category}],
+    const tagData = await Tag.update(req.params.id,{
+      where: {
+        id: req.params.id,
+      },
+      include: [{ model: ProductTag }],
     });
     if(!tagData){
       res.status(404).json({ message: 'Not a category in our system'});
       return;
-    }
-    //update category
-    if(req.body.category_name){
-      await tagData.update({ tag_name: req.body.tag_name});
     }
     res.status(200).json(tagData);
   }catch(err){
