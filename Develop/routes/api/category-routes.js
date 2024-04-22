@@ -16,6 +16,26 @@ router.get('/', async (req, res) => {
   }
 });
 
+// get one product
+router.get('/:id', async (req, res) => {
+  // find a single product by its `id`
+  // be sure to include its associated Category and Tag data
+  try{
+    const categoryData = await Category.findByPk(req.params.id,{
+      include: [
+        {model: Product},
+      ],
+    });
+    if(!categoryData){
+      res.status(404).json({ message: 'Not a Category in our system'});
+      return;
+    }
+    res.status(200).json(categoryData);
+  }catch(err){
+    res.status(500).json(err);
+  }
+});
+
 
 router.post('/', async (req, res) => {
   // create a new category
