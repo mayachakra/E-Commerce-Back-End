@@ -30,8 +30,5 @@ ran the seed, and deployed the server and tested it through Insomnia.
 ## Deployment
 
 Here are videos of the example usages:
-https://drive.google.com/file/d/1fBlCmUvIDUJcHj0QIBa6jwHTljYQGHBM/view?usp=sharing
+https://drive.google.com/file/d/12aViZ-XImWhAfh05KEbRmE93A9V9SLmP/view?usp=sharing
 
-https://drive.google.com/file/d/1TOPVA1f7j4_Ef2g0fZvfqXZubuSs2X1J/view?usp=sharing
-
-https://drive.google.com/file/d/1xjrAC9bkMxFdVBb0lcwD5AflOUUyWyis/view?usp=sharing
